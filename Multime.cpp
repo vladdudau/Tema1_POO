@@ -12,14 +12,14 @@ Multime::Multime(int n,int *v):nr_elemente(n)  ///contructor cu parametri
         for(int i=0;i<n;i++)
             this->tablou[i]=v[i];
     }
-Multime::Multime(const Multime& ob)
+Multime::Multime(const Multime& ob)     ///Constructor copiere
     {
         this->nr_elemente=ob.nr_elemente;
         this->tablou=new int[ob.nr_elemente];
         for(int i=0;i<ob.nr_elemente;i++)
             this->tablou[i]=ob.tablou[i];
     }
-Multime::~Multime()
+Multime::~Multime()         ///Destructor
     {
         if(nr_elemente)
             delete[] tablou;
@@ -58,7 +58,7 @@ Multime operator+(Multime& a,Multime& b)
         for(int i=0;i<n2;i++)
             v[n1+i] = A2[i];
         sort(v+0,v+n1+n2);
-        Multime c=Multime(n1+n2,v); // constructor apelat
+        Multime c=Multime(n1+n2,v);
         c.elimina();
         return c;
     }
